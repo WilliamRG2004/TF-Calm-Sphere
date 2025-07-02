@@ -1,0 +1,45 @@
+<div class="mat-elevation-z8">
+    <div><h1>Lista de Musica Categoria</h1></div>
+    <div>
+  <table mat-table [dataSource]="dataSource" matSort>
+  <!-- Position Column -->
+  <ng-container matColumnDef="c1">
+    <th mat-header-cell *matHeaderCellDef> ID. </th>
+    <td mat-cell *matCellDef="let element"> {{element.idMusicaCategoria}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="c2">
+    <th mat-header-cell *matHeaderCellDef> Nombre Categoria </th>
+    <td mat-cell *matCellDef="let element"> {{element.nombreCategoria}} </td>
+  </ng-container>
+
+   <!-- Column MODIFICAR-->
+  <ng-container matColumnDef="c3">
+    <th mat-header-cell *matHeaderCellDef> Actualizar </th>
+    <td mat-cell *matCellDef="let element"> 
+    <button mat-raised-button color="primary"
+                [routerLink]="['edicionesmusicacategoria', element.idMusicaCategoria]">
+          <span class="material-icons">update</span>
+        </button>
+    </td>
+  </ng-container>
+
+  <!-- Column ELIMINAR -->
+  <ng-container matColumnDef="c4">
+    <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-raised-button color="warn"
+              (click)="openDialog(element.idMusicaCategoria)"><span class="material-icons" style="color: #800000;">delete_sweep</span></button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+ <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+    </div>
+</div>

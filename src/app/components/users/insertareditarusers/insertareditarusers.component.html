@@ -1,0 +1,80 @@
+<div>
+    <div><h1>Registro de Sesion Usuario</h1></div>
+    <div>
+        <form [formGroup]="form" (submit)="aceptar()">
+            <mat-form-field *ngIf="edicion">
+                <mat-label>ID Terapia</mat-label>
+                <input matInput formControlName="codigo">
+                <mat-error *ngIf="form.get('codigo')?.hasError('required')">
+                El codigo de la sesion es obligatorio
+                </mat-error>
+            </mat-form-field>
+
+            <br />
+
+            <mat-form-field>
+                <mat-label>Username</mat-label>
+                <input matInput formControlName="userName">
+                <mat-error *ngIf="form.get('userName')?.hasError('required')">
+                El correo es obligatorio
+                </mat-error>
+            </mat-form-field>
+
+            <br />
+            <mat-form-field *ngIf="!edicion">
+                <mat-label>Passoword</mat-label>
+                <input matInput formControlName="passWord">
+                <mat-error *ngIf="form.get('passWord')?.hasError('required')">
+                El codigo de la sesion es obligatorio
+                </mat-error>
+            </mat-form-field>
+
+            <br />
+            <mat-label>Activo</mat-label>
+
+            <!-- Checkbox para "Sí" -->
+            <mat-checkbox
+              [checked]="form.get('estado')?.value === true"
+              [disabled]="form.get('estado')?.value === false"
+              (change)="toggleEstado(true)">
+              Sí
+            </mat-checkbox>
+
+            <!-- Checkbox para "No" -->
+            <mat-checkbox
+              [checked]="form.get('estado')?.value === false"
+              [disabled]="form.get('estado')?.value === true"
+              (change)="toggleEstado(false)">
+              No
+            </mat-checkbox>
+
+            <br />
+            <mat-form-field>
+                <mat-label>Correo</mat-label>
+                <input matInput formControlName="correo">
+                <mat-error *ngIf="form.get('correo')?.hasError('required')">
+                El correo es obligatorio
+                </mat-error>
+            </mat-form-field>
+
+            <br />
+
+            <mat-form-field>
+            <mat-label>Fecha de Nacimiento</mat-label>
+            <input matInput [matDatepicker]="pickerfecha" formControlName="fecha" />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle
+                matIconSuffix
+                [for]="pickerfecha"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #pickerfecha></mat-datepicker>
+            <mat-error *ngIf="form.get('fecha')?.hasError('required')">
+                La fecha de nacimiento es obligatoria!!
+            </mat-error>
+            </mat-form-field>
+
+        <button mat-raised-button class="btn-text">Registrar</button>
+
+        </form>
+    </div>
+</div>

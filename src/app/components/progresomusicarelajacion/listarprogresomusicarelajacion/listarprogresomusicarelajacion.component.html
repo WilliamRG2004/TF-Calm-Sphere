@@ -1,0 +1,62 @@
+<div class="mat-elevation-z8">
+    <div><h1>Lista de Progresos de Musica Relajacion</h1></div>
+    <div>
+  <table mat-table [dataSource]="dataSource" matSort>
+  <!-- Position Column -->
+  <ng-container matColumnDef="c1">
+    <th mat-header-cell *matHeaderCellDef> ID. </th>
+    <td mat-cell *matCellDef="let element"> {{element.idProgresomusicaS}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="c2">
+    <th mat-header-cell *matHeaderCellDef> Fecha Completado</th>
+    <td mat-cell *matCellDef="let element"> {{element.fechacompletado}} </td>
+  </ng-container>
+
+    <!-- Symbol Column -->
+  <ng-container matColumnDef="c3">
+    <th mat-header-cell *matHeaderCellDef> Completo </th>
+    <td mat-cell *matCellDef="let element"> {{element.completado}} </td>
+  </ng-container>
+  <!-- Usuario -->
+  <ng-container matColumnDef="c4">
+  <th mat-header-cell *matHeaderCellDef> Sesion Terapia </th>
+  <td mat-cell *matCellDef="let element"> {{ element.sesionTerapia.idSesion }} </td>
+  </ng-container>
+
+  <!-- Terapia -->
+  <ng-container matColumnDef="c5">
+  <th mat-header-cell *matHeaderCellDef> Musica Relajacion </th>
+  <td mat-cell *matCellDef="let element"> {{ element.musicaRelajacion.nombreMusica }} </td>
+  </ng-container>
+
+   <!-- Column MODIFICAR-->
+  <ng-container matColumnDef="c6">
+    <th mat-header-cell *matHeaderCellDef> Actualizar </th>
+    <td mat-cell *matCellDef="let element"> 
+    <button mat-raised-button color="primary"
+                [routerLink]="['edicionesprogresomusicarelax', element.idProgresomusicaS]">
+          <span class="material-icons">update</span>
+        </button>
+    </td>
+  </ng-container>
+
+  <!-- Column ELIMINAR -->
+  <ng-container matColumnDef="c7">
+    <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-raised-button color="warn"
+              (click)="openDialog(element.idProgresomusicaS)"><span class="material-icons" style="color: #800000;">delete_sweep</span></button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+ <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+    </div>
+</div>

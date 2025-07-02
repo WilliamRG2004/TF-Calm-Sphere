@@ -1,0 +1,26 @@
+<div>
+    <div><h1>Registro de Playlist</h1></div>
+    <div>
+        <form [formGroup]="form" (submit)="aceptar()">
+            <mat-form-field *ngIf="edicion">
+                <mat-label>ID Playlist</mat-label>
+                <input matInput formControlName="codigo">
+                <mat-error *ngIf="form.get('codigo')?.hasError('required')">
+                El codigo de la Playlist es obligatorio
+                </mat-error>
+            </mat-form-field>
+            <br />
+            <mat-form-field>
+                <mat-label>Nombre Playlist</mat-label>
+                <input matInput formControlName="nombre">
+                <mat-error *ngIf="form.get('nombre')?.hasError('required')">
+                El nombre de la Playlist es obligatorio
+                </mat-error>
+            </mat-form-field>
+            <br />
+
+        <button mat-raised-button class="btn-text">Registrar</button>
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+<div>
+    <div><h1>Registro de Sesion Usuario</h1></div>
+    <div>
+        <form [formGroup]="form" (submit)="aceptar()">
+            <mat-form-field *ngIf="edicion">
+                <mat-label>ID Terapia</mat-label>
+                <input matInput formControlName="codigo">
+                <mat-error *ngIf="form.get('codigo')?.hasError('required')">
+                El codigo de la sesion es obligatorio
+                </mat-error>
+            </mat-form-field>
+
+            <br />
+
+            <mat-form-field>
+            <mat-label>Fecha Inicio</mat-label>
+            <input matInput [matDatepicker]="pickerinicio" formControlName="fechainicio" />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle
+                matIconSuffix
+                [for]="pickerinicio"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #pickerinicio></mat-datepicker>
+            <mat-error *ngIf="form.get('fechainicio')?.hasError('required')">
+                La fecha de inicio es obligatoria!!
+            </mat-error>
+            </mat-form-field>
+
+            <br />
+
+            <mat-form-field>
+            <mat-label>Fecha Fin</mat-label>
+            <input matInput [matDatepicker]="pickerfin" formControlName="fechafin" />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle
+                matIconSuffix
+                [for]="pickerfin"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #pickerfin></mat-datepicker>
+            <mat-error *ngIf="form.get('fechafin')?.hasError('required')">
+                La fecha de inicio es obligatoria!!
+            </mat-error>
+            </mat-form-field>
+
+            <br />
+            <mat-label>Completado</mat-label>
+
+            <!-- Checkbox para "Sí" -->
+            <mat-checkbox
+              [checked]="form.get('estado')?.value === true"
+              [disabled]="form.get('estado')?.value === false"
+              (change)="toggleEstado(true)">
+              Sí
+            </mat-checkbox>
+
+            <!-- Checkbox para "No" -->
+            <mat-checkbox
+              [checked]="form.get('estado')?.value === false"
+              [disabled]="form.get('estado')?.value === true"
+              (change)="toggleEstado(false)">
+              No
+            </mat-checkbox>
+
+            <br />
+
+            <mat-form-field>
+            <mat-label>Usuarios</mat-label>
+                <mat-select formControlName="us">
+                 @for (food of listaUsuarios; track food) {
+                <mat-option [value]="food.id">{{food.username}}</mat-option>
+                }
+                </mat-select>
+                <mat-error *ngIf="form.get('us')?.hasError('required')">
+                El usuario es obligatorio!!
+                </mat-error>
+            </mat-form-field>
+
+            <br />
+
+            <mat-form-field>
+            <mat-label>Terapias</mat-label>
+                <mat-select formControlName="te">
+                 @for (food of listaTerapia; track food) {
+                <mat-option [value]="food.idTerapia">{{food.tipoTerapia}}</mat-option>
+                }
+                </mat-select>
+                <mat-error *ngIf="form.get('te')?.hasError('required')">
+                La Terapia es obligatoria!!
+                </mat-error>
+            </mat-form-field>
+
+            <br />
+        <button mat-raised-button class="btn-text">Registrar</button>
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+<mat-toolbar class="custom-toolbar">  
+ <div>
+  <button mat-button [matMenuTriggerFor]="menuTerapia" class="btn-rojo">
+   <mat-icon>business</mat-icon>
+   Terapia
+  </button>
+ </div>
+
+ <div>
+  <button mat-button [matMenuTriggerFor]="menuMusicaCategoria" class="btn-rojo">
+   <mat-icon>computer</mat-icon>
+   Musica Categoria
+  </button>
+ </div>
+
+  <div>
+  <button mat-button [matMenuTriggerFor]="menuPlaylist" class="btn-rojo">
+   <mat-icon>computer</mat-icon>
+   Playlist
+  </button>
+ </div>
+
+   <div>
+  <button mat-button [matMenuTriggerFor]="menuTipomaterial" class="btn-rojo">
+   <mat-icon>computer</mat-icon>
+   Tipo Material
+  </button>
+ </div>
+
+    <div>
+  <button mat-button [matMenuTriggerFor]="menuRole" class="btn-rojo">
+   <mat-icon>computer</mat-icon>
+   Roles
+  </button>
+ </div>
+</mat-toolbar>
+
+<mat-menu #menuTerapia="matMenu">
+ <button mat-menu-item routerLink="/terapia">Listar</button>
+ <button mat-menu-item routerLink="/terapia/nuevoterapia">Registrar</button>
+</mat-menu>
+<mat-menu #menuMusicaCategoria="matMenu">
+ <button mat-menu-item routerLink="/musicacategoria">Listar</button>
+ <button mat-menu-item routerLink="/musicacategoria/nuevomusicacategoria">Registrar</button>
+</mat-menu>
+<mat-menu #menuPlaylist="matMenu">
+ <button mat-menu-item routerLink="/playlist">Listar</button>
+ <button mat-menu-item routerLink="/playlist/nuevoplaylist">Registrar</button>
+</mat-menu>
+<mat-menu #menuTipomaterial="matMenu">
+ <button mat-menu-item routerLink="/tipomaterial">Listar</button>
+ <button mat-menu-item routerLink="/tipomaterial/nuevotipomaterial">Registrar</button>
+</mat-menu>
+<mat-menu #menuRole="matMenu">
+ <button mat-menu-item routerLink="/role">Listar</button>
+ <button mat-menu-item routerLink="/role/nuevorole">Registrar</button>
+</mat-menu>

@@ -1,0 +1,34 @@
+<div>
+    <div><h1>Registro de terapia</h1></div>
+    <div>
+        <form [formGroup]="form" (submit)="aceptar()">
+            <mat-form-field *ngIf="edicion">
+                <mat-label>ID Terapia</mat-label>
+                <input matInput formControlName="codigo">
+                <mat-error *ngIf="form.get('codigo')?.hasError('required')">
+                El codigo de la terapia es obligatorio
+                </mat-error>
+            </mat-form-field>
+            <br />
+            <mat-form-field>
+                <mat-label>Tipo</mat-label>
+                <input matInput formControlName="tipo">
+                <mat-error *ngIf="form.get('tipo')?.hasError('required')">
+                El tipo de terapia es obligatorio
+                </mat-error>
+            </mat-form-field>
+            <br />
+            <mat-form-field>
+                <mat-label>Descripcion</mat-label>
+                <input matInput formControlName="descripcion">
+                <mat-error *ngIf="form.get('descripcion')?.hasError('required')">
+                La descripcion de terapia es obligatorio
+                </mat-error>
+            </mat-form-field>
+            <br />
+
+        <button mat-raised-button class="btn-text">Registrar</button>
+
+        </form>
+    </div>
+</div>

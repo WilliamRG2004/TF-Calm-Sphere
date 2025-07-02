@@ -1,0 +1,20 @@
+<div class="mat-elevation-z8">
+  <div><h1>Lista por ID de Usuario</h1></div>
+
+  <div>
+    <form [formGroup]="form">
+      <mat-form-field>
+        <mat-label>Id Sesion</mat-label>
+        <input matInput formControlName="idsesion" type="number">
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div>
+    <mat-progress-bar 
+      mode="determinate" 
+      [value]="porcentaje">
+    </mat-progress-bar>
+    <p *ngIf="porcentaje > 0">{{ porcentaje }}%</p>
+  </div>
+</div>

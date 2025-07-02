@@ -1,0 +1,40 @@
+<div>
+    <div><h1>Registro de Role</h1></div>
+    <div>
+        <form [formGroup]="form" (submit)="aceptar()">
+            <mat-form-field *ngIf="edicion">
+                <mat-label>ID Role</mat-label>
+                <input matInput formControlName="codigo">
+                <mat-error *ngIf="form.get('codigo')?.hasError('required')">
+                El codigo del Role es obligatorio
+                </mat-error>
+            </mat-form-field>
+
+            <br />
+            <mat-form-field>
+                <mat-label>Nombre del role</mat-label>
+                <input matInput formControlName="namerole">
+                <mat-error *ngIf="form.get('namerole')?.hasError('required')">
+                El nombre del Role es obligatorio
+                </mat-error>
+            </mat-form-field>
+            <br />
+
+            <mat-form-field>
+            <mat-label>Usuarios</mat-label>
+                <mat-select formControlName="us">
+                 @for (food of listaUsuarios; track food) {
+                <mat-option [value]="food.id">{{food.username}}</mat-option>
+                }
+                </mat-select>
+                <mat-error *ngIf="form.get('us')?.hasError('required')">
+                El usuario es obligatorio!!
+                </mat-error>
+            </mat-form-field>
+
+            <br />
+        <button mat-raised-button class="btn-text">Registrar</button>
+
+        </form>
+    </div>
+</div>
