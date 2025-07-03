@@ -1,0 +1,72 @@
+<div class="carrusel-container">
+  <div class="busqueda-emocional">
+    <input
+      type="text"
+      [(ngModel)]="estadoEmocional"
+      placeholder="¿Cuéntanos como te sientes hoy?"
+    />
+    <button (click)="buscarPorEstado()">
+      <mat-icon>search</mat-icon> Buscar en Galeria Relajante
+    </button>
+  </div>
+
+  <div class="carrusel-wrapper">
+    <div
+      class="carrusel-slide"
+      [style.transform]="'translateX(-' + indiceActual * 100 + 'vw)'"
+    >
+      <div
+        *ngFor="let imagen of imagenes; let i = index"
+        class="carrusel-imagen"
+      >
+        <img
+          [id]="'img-' + i"
+          [src]="imagen.urls.full"
+          [alt]="imagen.alt_description"
+        />
+
+        <div class="fullscreen-wrapper">
+          <button class="fullscreen-btn hide-on-small" (click)="activarPantallaCompleta(i)">
+            <mat-icon>fullscreen</mat-icon>
+          </button>
+        </div>
+
+        <div class="descripcion">
+          {{ imagen.alt_description || "Estado emocional" }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="carrusel-btn prev" (click)="anterior()">
+    <mat-icon>chevron_left</mat-icon>
+  </button>
+
+  <button class="carrusel-btn next" (click)="siguiente()">
+    <mat-icon>chevron_right</mat-icon>
+  </button>
+</div>
+
+<div *ngIf="musicaUrl" class="musica-controls">
+  <audio #audioPlayer [src]="musicaUrl" loop></audio>
+
+  <div class="controles-avanzados">
+    <label>
+      <span class="titulo-control">Velocidad: {{ velocidad | number: '1.1-1' }}x</span>
+      <input type="range" min="0.5" max="2" step="0.1"
+            [value]="velocidad" (input)="actualizarVelocidad($event)">
+    </label>
+
+    <label>
+      <span class="titulo-control">Volumen: {{ volumen | number: '1.1-1' }}</span>
+      <input type="range" min="0" max="1" step="0.1"
+            [value]="volumen" (input)="actualizarVolumen($event)">
+    </label>
+
+    <button (click)="reproducirMusica()">▶ Reproducir</button>
+    <button (click)="pausarMusica()">⏸ Suspender</button>
+  </div>
+</div>
+
+
+
