@@ -1,0 +1,37 @@
+<div class="login-wrapper">
+  <div class="login-box">
+    <div class="container">
+      <div>
+        <img src="icons/logo.png" alt="logoEmpresa" class="logoEmpresa" />
+      </div>
+
+      <h2 class="caja-texto-color2">Iniciar Sesión en Calm Sphere</h2>
+
+      <mat-form-field appearance="outline" class="mb-4 campo-formulario">
+        <mat-label class="caja-texto-color"> Nombre de Usuario</mat-label>
+        <input
+          matInput
+          placeholder="Ingrese el nombre de usuario"
+          [(ngModel)]="username"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="mb-4 campo-formulario">
+        <mat-label class="caja-texto-color">Contraseña</mat-label>
+        <input
+          type="password"
+          matInput
+          placeholder="Ingrese la contraseña"
+          [(ngModel)]="password"
+        />
+      </mat-form-field>
+
+      <button mat-raised-button class="custom-button" (click)="login()">
+        Iniciar Sesión
+      </button>
+      <button mat-raised-button class="custom-button2" (click)="cancelar()">
+        Regresar
+      </button>
+    </div>
+  </div>
+</div>
