@@ -1,0 +1,24 @@
+<div class="chat-container">
+  <div class="chat-header">
+    Calm Help IA
+  </div>
+
+  <div class="chat-messages">
+    <div
+      *ngFor="let msg of mensajes"
+      [ngClass]="msg.autor === 'Usuario' ? 'usuario' : 'bot'"
+    >
+      {{ msg.texto }}
+    </div>
+    <div *ngIf="cargando" class="escribiendo">Escribiendo<span class="puntos"></span></div>
+  </div>
+
+  <div class="chat-input">
+    <input
+      [(ngModel)]="mensajeUsuario"
+      (keyup.enter)="enviar()"
+      placeholder="Escribe tu pregunta"
+    />
+    <button (click)="enviar()">Enviar Mensaje</button>
+  </div>
+</div>
