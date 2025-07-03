@@ -1,0 +1,90 @@
+  <section class="banner">
+    <div class="hero-box">
+      <div class="hero-content">
+        <h1 class="titulo1">TU BIENESTAR EMPIEZA AQUÍ</h1>
+        <p class="subtitulo-hero">
+          Accede a un espacio seguro y diseñado para ti. Descubre herramientas que alivian el estrés, fortalecen tu equilibrio emocional y te acercan a una vida más plena.
+        </p>
+        <div class="botones-flex" *ngIf="!isLoggedIn">
+            <button class="btnenviar" [routerLink]="['/usuarios/nuevo']">Crear Cuenta en Calm Sphere</button>
+            <button class="btnenviar btn-secundario" [routerLink]="['/login']">Iniciar Sesión en Calm Sphere</button>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sobreN">
+    <div class="sobre-nosotros">
+      <div class="boxB texto-sobre">
+        <h2 class="titulo1">Sobre Calm Sphere</h2>
+        <p class="parrafo1" id="txtbanner3">
+          En Calm Sphere transformamos tu bienestar.
+          Te ayudamos a reducir el estrés, la ansiedad y las tensiones cotidianas con herramientas accesibles, efectivas y diseñadas para ti.
+          Nuestro propósito es acompañarte hacia una vida más equilibrada, consciente y plena. Tu bienestar no es solo nuestra prioridad, es nuestra razón de ser.
+        </p>
+      </div>
+      <div class="boxB imagen-sobre">
+        <img src="icons/logo.png" alt="Logo Calm Sphere" class="logo-img" />
+      </div>
+    </div>
+  </section>
+
+  <section class="sobreR">
+    <div class="sobre-nosotros">
+      <div class="boxB imagen-sobre">
+        <img src="/icons/RobotIAOriginal.png" alt="Logo Calm Sphere" class="robot-img" />
+      </div>
+      <div class="boxB texto-sobre">
+        <h2 class="titulo3">Conecta con Calm Help IA y Galería Relajante</h2>
+          <p class="subtitulo-hero2">
+            Siente calma, claridad y apoyo emocional en cualquier momento. La IA de Calm Sphere te guía, te escucha y te acompaña en tu bienestar diario. Además, descubre nuestra galería relajante, donde puedes escribir cómo te sientes y recibir imágenes visualmente terapéuticas diseñadas para armonizar con tus emociones.
+          </p>
+          <div class="botones-flex">
+            <button class="btnenviar" [routerLink]="['/chatbot']">Conecta ahora con Calm Help IA</button>
+            <button class="btnenviar btn-secundario" [routerLink]="['/galeriasrelajantes']">Conecta con la Galería Relajante</button>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios -->
+  <section class="servicio">
+    <div class="subservicios" id="servicio">
+      <h2 class="titulo1">¿Qué encontrarás en Calm Sphere?</h2>
+      <p>
+        Nuestro enfoque integral te ofrece herramientas prácticas para alcanzar una mente en equilibrio.
+      </p>
+    </div>
+
+    <div class="containerS">
+      <div class="boxS">
+        <img src="/icons/Cerebro1.png" alt="Música relajante" />
+        <h3>Galería Relajante</h3>
+        <p>Explora imágenes que armonizan con tus emociones. Escribe cómo te sientes y descubre visuales diseñados para calmar tu mente y reconfortar tu espíritu.</p>
+      </div>
+
+      <div class="boxS">
+        <img src="/icons/Cerebro3.png" alt="Chat IA" />
+        <h3>Chat con Calm Sphere IA</h3>
+        <p>Conversa con una IA comprensiva y segura. Recibe apoyo emocional personalizado y confiable para afrontar el estrés, la ansiedad y tus inquietudes.</p>
+      </div>
+
+      <div class="boxS">
+        <img src="/icons/Cerebro4.png" alt="Meditación guiada" />
+        <h3>Meditación Personalizada</h3>
+        <p>Accede a meditaciones guiadas y efectivas que se ajustan a tu estado emocional, llevándote suavemente hacia una calma profunda y restauradora.</p>
+      </div>
+
+      <div class="boxS">
+        <img src="/icons/Cerebro2.png" alt="Seguimiento de progreso" />
+        <h3>Seguimiento Personal</h3>
+        <p>Descubre tu evolución diaria con métricas claras y personalizadas que reflejan tu bienestar real y te inspiran a seguir creciendo con equilibrio, conciencia y constancia.</p>
+      </div>
+
+      <div class="boxS">
+        <img src="/icons/Cerebro5.png" alt="Ejercicios de respiración" />
+        <h3>Respiración Consciente</h3>
+        <p>Redescubre la serenidad interior con videos de técnicas de respiración que relajan tu cuerpo, calman tu mente y restauran tu equilibrio emocional.</p>
+      </div>
+    </div>
+  </section>
