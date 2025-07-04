@@ -1,0 +1,75 @@
+<div class="container mt-4">
+  <div><h1 class="violet-text mb-4">Registro de Billetera Electrónica:</h1></div>
+  <div>
+    <form [formGroup]="form" [ngClass]="edicion ? 'form-wrapper-3' : 'form-wrapper-2'" (submit)="aceptar()">
+
+      <mat-form-field *ngIf="edicion" appearance="outline" class="mb-4 campo-formulario"
+      [ngClass]="{'success-border': form.get('codigo')?.valid && (form.get('codigo')?.touched || form.get('codigo')?.dirty)}">
+        <mat-label class="caja-texto-color">ID de la Billetera Electrónica</mat-label>
+        <input matInput placeholder="Ingrese el ID de la billetera electrónica" formControlName="codigo" [readonly]="true" class="input-gris"/>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="mb-4 campo-formulario"
+      [ngClass]="{'success-border': form.get('compania')?.valid && (form.get('compania')?.touched || form.get('compania')?.dirty)}">
+        <mat-label class="caja-texto-color">Compañía de la Billetera Electrónica</mat-label>
+        <input matInput placeholder="Ingrese la compañía de la billetera electrónica" formControlName="compania"/>
+        <mat-error *ngIf="form.get('compania')?.hasError('required')">
+          Es obligatorio completar la compañía de la billetera electrónica
+        </mat-error>
+         <mat-hint *ngIf="form.get('compania')?.valid && (form.get('compania')?.touched || form.get('compania')?.dirty)">
+          <span class="success-hint">Campo registrado correctamente</span>
+        </mat-hint> 
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="mb-4 campo-formulario"
+      [ngClass]="{'success-border': form.get('imagenQR')?.valid && (form.get('imagenQR')?.touched || form.get('imagenQR')?.dirty)}">
+        <mat-label class="caja-texto-color">Imagen QR de la Billetera Electrónica</mat-label>
+        <input matInput placeholder="Ingrese la imagen QR de la billetera electrónica" formControlName="imagenQR"/>
+        <mat-error *ngIf="form.get('imagenQR')?.hasError('required')">
+          Es obligatorio completar la imagen QR de la billetera electrónica
+        </mat-error>
+         <mat-hint *ngIf="form.get('imagenQR')?.valid && (form.get('imagenQR')?.touched || form.get('imagenQR')?.dirty)">
+          <span class="success-hint">Campo registrado correctamente</span>
+        </mat-hint> 
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="mb-4 campo-formulario"
+      [ngClass]="{'success-border': form.get('evidencia')?.valid && (form.get('evidencia')?.touched || form.get('evidencia')?.dirty)}">
+        <mat-label class="caja-texto-color">Evidencia de la Billetera Electrónica</mat-label>
+        <input matInput placeholder="Ingrese la evidencia de la billetera electrónica" formControlName="evidencia"/>
+        <mat-error *ngIf="form.get('evidencia')?.hasError('required')">
+          Es obligatorio completar la evidencia de la billetera electrónica
+        </mat-error>
+         <mat-hint *ngIf="form.get('evidencia')?.valid && (form.get('evidencia')?.touched || form.get('evidencia')?.dirty)">
+          <span class="success-hint">Campo registrado correctamente</span>
+        </mat-hint> 
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-select-bootstrap campo-formulario mb-4"
+      [ngClass]="{
+        'success-border': form.get('pag')?.valid && (form.get('pag')?.touched || form.get('pag')?.dirty)
+      }">
+      <mat-label class="caja-texto-color">Lista de Pagos</mat-label>
+      <mat-select formControlName="pag">
+          @for (food of listaPagos; track food) {
+          <mat-option [value]="food.idPagos">{{food.tipoPago}}</mat-option>
+          }
+      </mat-select>
+       <mat-error *ngIf="form.get('pag')?.hasError('required')">
+        Es obligatorio seleccionar un pago disponible
+      </mat-error>
+      <mat-hint *ngIf="form.get('pag')?.valid && (form.get('pag')?.touched || form.get('pag')?.dirty)">
+        <span class="success-hint">Campo registrado correctamente</span>
+      </mat-hint>
+      </mat-form-field>
+
+      <div [ngClass]="edicion ? 'boton-wrapper-3' : 'boton-wrapper-2'">
+        <button class="btn btn-primary" matButton="filled">Registrar Billetera Electrónica</button>
+      </div>
+    </form>
+    <div>
+        <button class="btn btn-primary2" matButton="filled" (click)="cancelar()">Cancelar Registro Billetera Electrónica</button>
+    </div>
+  </div>
+</div>
+
