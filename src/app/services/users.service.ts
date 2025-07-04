@@ -13,7 +13,7 @@ const base_url=environment.base
 
 export class UsersService {
   private url=`${base_url}/usuario`
-  private listacambio=new Subject<Usernopass[]>
+  private listacambio=new Subject<Usernopass[]> //lista de usuarios sin mostrar el password
 
   constructor(private husuario:HttpClient) { }
   
