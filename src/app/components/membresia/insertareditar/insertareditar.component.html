@@ -1,0 +1,65 @@
+<div class="container mt-4">
+  <div><h1 class="violet-text mb-4">Registro de Membresía:</h1></div>
+  <div>
+    <form [formGroup]="form" [ngClass]="edicion ? 'form-wrapper-3' : 'form-wrapper-2'" (submit)="aceptar()">
+
+      <mat-form-field *ngIf="edicion" appearance="outline" class="mb-4 campo-formulario"
+      [ngClass]="{'success-border': form.get('codigo')?.valid && (form.get('codigo')?.touched || form.get('codigo')?.dirty)}">
+        <mat-label class="caja-texto-color">ID de la Membresía</mat-label>
+        <input matInput placeholder="Ingrese el ID de la membresía" formControlName="codigo" [readonly]="true" class="input-gris"/>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="mb-4 campo-formulario flex-item">
+          <mat-label class="caja-texto-color">Fecha de Inicio</mat-label>
+          <input matInput [matDatepicker]="pickerInicio" formControlName="inicio" />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="pickerInicio"></mat-datepicker-toggle>
+          <mat-datepicker #pickerInicio></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="mb-4 campo-formulario flex-item">
+          <mat-label class="caja-texto-color">Fecha de Fin</mat-label>
+          <input matInput [matDatepicker]="pickerFin" formControlName="fin" />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="pickerFin"></mat-datepicker-toggle>
+          <mat-datepicker #pickerFin></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-select-bootstrap campo-formulario mb-4"
+      [ngClass]="{
+        'success-border': form.get('usu')?.valid && (form.get('usu')?.touched || form.get('usu')?.dirty)
+      }">
+      <mat-label class="caja-texto-color">Lista de Usuarios</mat-label>
+      <mat-select formControlName="usu">
+          @for (food of listaUsuarios; track food) {
+          <mat-option [value]="food.id">{{food.username}}</mat-option>
+          }
+      </mat-select>
+       <mat-error *ngIf="form.get('usu')?.hasError('required')">
+        Es obligatorio seleccionar una terapia disponible
+      </mat-error>
+      <mat-hint *ngIf="form.get('usu')?.valid && (form.get('usu')?.touched || form.get('usu')?.dirty)">
+        <span class="success-hint">Campo registrado correctamente</span>
+      </mat-hint>
+      </mat-form-field>
+
+      <div class="estado-radio-group flex-item">
+          <label class="estado-label texto-negrita">Estado:</label>
+          <mat-radio-group
+            aria-label="Seleccione una opción"
+            formControlName="estado">
+            <mat-radio-button [value]="true">Activo</mat-radio-button>
+            <mat-radio-button [value]="false">Inactivo</mat-radio-button>
+          </mat-radio-group>
+      </div>
+
+      <div [ngClass]="edicion ? 'boton-wrapper-3' : 'boton-wrapper-2'">
+        <button class="btn btn-primary" matButton="filled">Registrar Membresía</button>
+      </div>
+    </form>
+    <div>
+        <button class="btn btn-primary2" matButton="filled" (click)="cancelar()">Cancelar Registro Membresía</button>
+    </div>
+  </div>
+</div>
+
