@@ -1,0 +1,72 @@
+<div class="container mt-4">
+  <div><h1 class=" violet-text mb-4">Lista de Membresías:</h1></div>
+  <p class="texto-negrita"> Cantidad de Membresías: {{ dataSource.data.length }} </p>
+  <button class="btn btn-primary align-icon-text" [routerLink]="['/membresias/nuevo']">
+      <mat-icon class="position-icon">add</mat-icon> Nueva Membresía
+  </button>
+
+  <div class="table-responsive" >
+    <table mat-table [dataSource]="dataSource" class="table table-bordered border-primary table table-striped table-hover">
+      <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="ID">
+        <th mat-header-cell *matHeaderCellDef class="columna-text-celdas-center columna-text">ID</th>
+        <td mat-cell *matCellDef="let element" class="columna-text-celdas-center columna-text-celdas">{{ element.idMembresia }}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="Fecha Inicio">
+        <th mat-header-cell *matHeaderCellDef class="columna-text-celdas-center columna-text">Fecha Inicio</th>
+        <td mat-cell *matCellDef="let element" class="columna-text-celdas">{{ element.fechainicioMembresia }}</td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="Fecha Fin">
+        <th mat-header-cell *matHeaderCellDef class="columna-text-celdas-center columna-text">Fecha Fin</th>
+        <td mat-cell *matCellDef="let element" class="columna-text-celdas">{{ element.fechafinalMembresia }}</td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="Estado">
+        <th mat-header-cell *matHeaderCellDef class="columna-text-celdas-center columna-text">Estado</th>
+        <td mat-cell *matCellDef="let element" class="columna-text-celdas">{{ element.estadoMembresia ? 'Activo' : 'Inactivo' }}</td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="Usuario">
+        <th mat-header-cell *matHeaderCellDef class="columna-text-celdas-center columna-text">Usuario</th>
+        <td mat-cell *matCellDef="let element" class="columna-text-celdas">{{ element.usuario.username }}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="Actualizar">
+        <th mat-header-cell *matHeaderCellDef class="columna-text-celdas-center columna-text">Actualizar</th>
+        <td mat-cell *matCellDef="let element" class="celda-boton-editar">
+          <button class="btn btn-primary2" [routerLink]="['ediciones', element.idMembresia]">
+            <mat-icon class="color-icon-editar">edit</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="Eliminar">
+        <th mat-header-cell *matHeaderCellDef class="columna-text-celdas-center columna-text">Eliminar</th>
+        <td mat-cell *matCellDef="let element" class="celda-boton-editar">
+          <button class="btn btn-primary3" (click)="eliminar(element.idMembresia)">
+            <mat-icon class="color-icon-editar">delete_forever</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+  </div>
+</div>
+

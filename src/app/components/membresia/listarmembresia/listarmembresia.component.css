@@ -1,0 +1,171 @@
+.violet-text {
+  color: #ee82ee;
+  font-weight: bold;
+}
+
+.columna-text-celdas {
+  vertical-align: middle;
+  padding: 12px;
+  text-align: justify;
+}
+
+.columna-text-celdas-center {
+  text-align: center;
+}
+
+.columna-text {
+  color: white;
+  font-weight: bold;
+  font-size: 17px;
+  background-color: #ee82ee !important;
+  vertical-align: middle !important;
+  padding: 12px;
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 2px solid #ee82ee !important;
+  vertical-align: middle;
+  padding: 12px;
+}
+
+.custom-bootstrap-icon {
+  font-size: 24px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;  
+}
+
+.custom-bootstrap-icon i {
+  font-size: 20px;
+}
+
+.color-icon-editar{
+  color: white;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.btn-primary2{
+  background-color: #1976d2;
+  font-weight: bold;
+  font-size: 17px;
+  padding: 8px;              
+  align-items: center;         
+  justify-content: center;     
+  width: 40px;                 
+  height: 41px;   
+}
+
+.btn-primary2:hover {
+  background-color:#17548a;
+  border-color: #17548a;
+}
+
+.celda-boton-editar {
+  text-align: center;
+  vertical-align: middle;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.btn-primary3{
+  background-color: #dc2222;
+  font-weight: bold;
+  font-size: 17px;
+  padding: 8px;              
+  align-items: center;         
+  justify-content: center;     
+  width: 40px;                 
+  height: 41px;   
+}
+
+.btn-primary3:hover {
+  background-color: #a41515;
+  border-color: #a41515;
+}
+
+::ng-deep .mat-mdc-paginator-container{
+  background-color: #dfdfdf;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  padding: 7px;
+  border-radius: 6px;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions{
+  background-color: white;
+  color: black;
+  border-radius: 7px;
+}
+
+::ng-deep .mat-mdc-paginator-page-size{
+  color: black;
+  border-radius: 10px;
+}
+
+::ng-deep .mat-mdc-icon-button svg {
+  fill: #ee82ee !important;
+  filter: drop-shadow(0 0 0.5px #ee82ee);
+}
+
+::ng-deep .mat-mdc-select-panel {
+  background-color: #eaadea !important; 
+  color: white;  
+}
+
+::ng-deep .mat-mdc-option.mdc-list-item--selected .mdc-list-item__primary-text {
+  color: white !important; 
+}
+
+::ng-deep .mat-mdc-option.mdc-list-item--selected,
+::ng-deep .mat-mdc-option:hover {
+  background-color: #ee82ee !important;
+  color: rgb(253, 253, 253) !important;
+}
+
+::ng-deep .mat-mdc-paginator-page-size .mat-mdc-text-field-wrapper {
+  background-color: white !important;
+  border-radius: 5px;
+}
+
+::ng-deep .mat-mdc-paginator-page-size .mat-mdc-select-value-text {
+  color: #ee82ee !important;
+  font-weight: bold;
+}
+
+.btn-primary{
+  background-color: #e86ae8;
+  border-color: #e86ae8;
+  font-weight: bold;
+  font-size: 17px;
+  padding: 8px 16px;
+  width: 100%;
+  font-weight: bold;
+  align-items: center;
+}
+
+.btn-primary:hover {
+  background-color: #d256d2;
+  border-color: #d256d2;
+}
+
+.table-responsive{
+  padding-top: 16px;
+}
+
+.align-icon-text {
+  align-items: center;
+}
+
+.align-icon-text mat-icon {
+  font-size: 23px;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.texto-negrita{
+  font-weight: bold;
+}
