@@ -47,7 +47,7 @@ export class ListarmusicacategoriaComponent implements OnInit{
       })
   }
 
-  openDialog(id:number){
+  openDialog(id:number){ //Envia a un cuadro de dialogo la opcion de eliminar
     const dialogRef = this.dialog.open(ConfirmComponent);
     dialogRef.afterClosed().subscribe(result =>{
       if(result){
