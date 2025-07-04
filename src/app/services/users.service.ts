@@ -35,7 +35,5 @@ export class UsersService {
    update(us:Users){
      return this.husuario.put(this.url + '/edit',us)
    }
-   deleteUs(id:number){
-     return this.husuario.delete(`${this.url + '/eliminar'}/${id}`) 
-   }
+
 }
