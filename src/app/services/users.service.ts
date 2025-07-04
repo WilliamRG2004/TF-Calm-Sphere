@@ -18,7 +18,7 @@ export class UsersService {
   constructor(private husuario:HttpClient) { }
   
   list(){
-     return this.husuario.get<Usernopass[]>(this.url + '/lista')
+     return this.husuario.get<Usernopass[]>(this.url + '/lista') //lista los usuarios sin mostrar contraseña
    }
    insert(u:Users){
    return this.husuario.post(this.url + '/insertarusuario',u)
