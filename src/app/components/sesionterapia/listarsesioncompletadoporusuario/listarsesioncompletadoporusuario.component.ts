@@ -56,4 +56,23 @@ displayedColumns:String[]=['c1','c2','c3','c4','c5','c6'];
       })
   }
 
-  
+  buscar(){
+      if(this.idusuarioBusqueda!=0){
+          this.seteraserv.listSesionCompletasUsuario(this.idusuarioBusqueda).subscribe(data=>{
+             this.dataSource=new MatTableDataSource(data)
+             this.dataSource.paginator = this.paginator;
+             this.dataSource.sort = this.sort;
+             this.notResults=data.length===0
+          })
+          
+      }else{
+        this.seteraserv.list().subscribe(data=>{
+          this.dataSource=new MatTableDataSource(data)
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+          this.notResults=false
+        })
+      }
+    }
+}
+
