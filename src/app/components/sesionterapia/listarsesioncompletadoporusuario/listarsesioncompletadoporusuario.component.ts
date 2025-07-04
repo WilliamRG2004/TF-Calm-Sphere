@@ -43,18 +43,7 @@ displayedColumns:String[]=['c1','c2','c3','c4','c5','c6'];
   @ViewChild(MatSort) sort: MatSort;
   
 
-  ngOnInit(): void {
-      this.seteraserv.list().subscribe(data=>{
-        this.dataSource=new MatTableDataSource(data);
-        this.dataSource.sort = this.sort;
-        this.dataSource.paginator = this.paginator;
-      })
 
-      this.form.get('idusuarioparasesion')?.valueChanges.subscribe(value=>{
-        this.idusuarioBusqueda=value
-        this.buscar()
-      })
-  }
 
   buscar(){
       if(this.idusuarioBusqueda!=0){
