@@ -117,5 +117,18 @@ toggleEstado(valor: boolean) {
     }
     this.router.navigate(['sesionterapia'])
   }
-
+  init(){
+    if(this.edicion){
+      this.sesionterapiaserv.listid(this.id).subscribe(data=>{
+        this.form=new FormGroup({
+          codigo:new FormControl(data.idSesion),
+          fechainicio:new FormControl(data.fechaInicio),
+          fechafin:new FormControl(data.fechaFin),
+          estado:new FormControl(data.completado),
+          us:new FormControl(data.usuario.id),
+          te:new FormControl(data.terapia.idTerapia)
+        })
+      })
+    }
+  }
 }
