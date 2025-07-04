@@ -36,6 +36,6 @@ export class UsersService {
      return this.husuario.put(this.url + '/edit',us)
    }
    deleteUs(id:number){
-     return this.husuario.delete(`${this.url + '/eliminar'}/${id}`) 
+     return this.husuario.delete(`${this.url + '/eliminar'}/${id}`) //son las comillas para la derecha alt+ 9 y 6
    }
 }
