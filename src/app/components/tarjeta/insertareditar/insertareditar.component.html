@@ -1,0 +1,88 @@
+<div class="container mt-4">
+  <div><h1 class="violet-text mb-4">Registro de Tarjeta:</h1></div>
+  <div>
+    <form [formGroup]="form" [ngClass]="edicion ? 'form-wrapper-3' : 'form-wrapper-2'" (submit)="aceptar()">
+
+      <mat-form-field *ngIf="edicion" appearance="outline" class="mb-4 campo-formulario"
+      [ngClass]="{'success-border': form.get('codigo')?.valid && (form.get('codigo')?.touched || form.get('codigo')?.dirty)}">
+        <mat-label class="caja-texto-color">ID de la Tarjeta</mat-label>
+        <input matInput placeholder="Ingrese el ID de la Tarjeta" formControlName="codigo" [readonly]="true" class="input-gris"/>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="mb-4 campo-formulario"
+      [ngClass]="{'success-border': form.get('nombre')?.valid && (form.get('nombre')?.touched || form.get('nombre')?.dirty)}">
+        <mat-label class="caja-texto-color">Nombre del Titular de la Tarjeta</mat-label>
+        <input matInput placeholder="Ingrese el nombre del titular de la tarjeta" formControlName="nombre"/>
+        <mat-error *ngIf="form.get('nombre')?.hasError('required')">
+          Es obligatorio completar el nombre del titular de la tarjeta
+        </mat-error>
+         <mat-hint *ngIf="form.get('nombre')?.valid && (form.get('nombre')?.touched || form.get('nombre')?.dirty)">
+          <span class="success-hint">Campo registrado correctamente</span>
+        </mat-hint> 
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="mb-4 campo-formulario"
+      [ngClass]="{'success-border': form.get('numero')?.valid && (form.get('numero')?.touched || form.get('numero')?.dirty)}">
+        <mat-label class="caja-texto-color">Número de la Tarjeta</mat-label>
+        <input matInput placeholder="Ingrese el número de la tarjeta" formControlName="numero"/>
+        <mat-error *ngIf="form.get('numero')?.hasError('required')">
+          Es obligatorio completar el número de la tarjeta
+        </mat-error>
+         <mat-hint *ngIf="form.get('numero')?.valid && (form.get('numero')?.touched || form.get('numero')?.dirty)">
+          <span class="success-hint">Campo registrado correctamente</span>
+        </mat-hint> 
+      </mat-form-field>
+
+       <mat-form-field appearance="outline" class="mb-4 campo-formulario"
+      [ngClass]="{'success-border': form.get('cvv')?.valid && (form.get('cvv')?.touched || form.get('cvv')?.dirty)}">
+        <mat-label class="caja-texto-color">CVV de la Tarjeta</mat-label>
+        <input matInput placeholder="Ingrese el cvv de la tarjeta" formControlName="cvv"/>
+        <mat-error *ngIf="form.get('cvv')?.hasError('required')">
+          Es obligatorio completar el CVV de la tarjeta
+        </mat-error>
+         <mat-hint *ngIf="form.get('cvv')?.valid && (form.get('cvv')?.touched || form.get('cvv')?.dirty)">
+          <span class="success-hint">Campo registrado correctamente</span>
+        </mat-hint> 
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="mb-4 campo-formulario"
+      [ngClass]="{'success-border': form.get('fecha')?.valid && (form.get('fecha')?.touched || form.get('fecha')?.dirty)}">
+        <mat-label class="caja-texto-color">Fecha de Caducidad de la Tarjeta</mat-label>
+        <input matInput placeholder="Ingrese la fecha de caducidad de la tarjeta" formControlName="fecha"/>
+        <mat-error *ngIf="form.get('fecha')?.hasError('required')">
+          Es obligatorio completar la fecha de caducidad de la tarjeta
+        </mat-error>
+         <mat-hint *ngIf="form.get('fecha')?.valid && (form.get('fecha')?.touched || form.get('fecha')?.dirty)">
+          <span class="success-hint">Campo registrado correctamente</span>
+        </mat-hint> 
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-select-bootstrap campo-formulario mb-4"
+      [ngClass]="{
+        'success-border': form.get('pag')?.valid && (form.get('pag')?.touched || form.get('pag')?.dirty)
+      }">
+      <mat-label class="caja-texto-color">Lista de Pago</mat-label>
+      <mat-select formControlName="pag">
+          @for (food of listaPago; track food) {
+          <mat-option [value]="food.idPagos">{{food.tipoPago}}</mat-option>
+          }
+      </mat-select>
+       <mat-error *ngIf="form.get('pag')?.hasError('required')">
+        Es obligatorio seleccionar un pago
+      </mat-error>
+      <mat-hint *ngIf="form.get('pag')?.valid && (form.get('pag')?.touched || form.get('pag')?.dirty)">
+        <span class="success-hint">Campo registrado correctamente</span>
+      </mat-hint>
+      </mat-form-field>
+
+
+      <div [ngClass]="edicion ? 'boton-wrapper-3' : 'boton-wrapper-2'">
+        <button class="btn btn-primary" matButton="filled">Registrar Tarjeta</button>
+      </div>
+    </form>
+    <div>
+        <button class="btn btn-primary2" matButton="filled" (click)="cancelar()">Cancelar Registro Tarjeta</button>
+    </div>
+  </div>
+</div>
+
