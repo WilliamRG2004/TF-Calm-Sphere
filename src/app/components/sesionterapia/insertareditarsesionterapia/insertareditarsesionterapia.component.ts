@@ -65,30 +65,7 @@ toggleEstado(valor: boolean) {
 
   ){}
 
-  ngOnInit(): void {
-    this.route.params.subscribe((data:Params)=>{
-      this.id=data['id']
-      this.edicion=data['id']!=null
-      this.init()
 
-    })
-      this.form=this.formBuilder.group({
-        codigo:[''],
-        fechainicio:['', Validators.required],
-        fechafin:['', Validators.required],
-        estado:['', Validators.required],
-        us:['', Validators.required],
-        te:['', Validators.required],  
-    })
-
-        this.usS.list().subscribe(data=>{
-      this.listaUsuarios=data
-    })
-
-        this.teS.list().subscribe(data=>{
-      this.listaTerapia=data
-    })
-  }
 
   aceptar(){
     if(this.form.valid){
