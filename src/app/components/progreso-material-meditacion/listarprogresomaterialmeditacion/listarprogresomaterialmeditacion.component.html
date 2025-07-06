@@ -40,7 +40,25 @@
         <td mat-cell *matCellDef="let element" class="columna-text-celdas">{{ element.materialMeditacion.nombreMaterialMeditacion }}</td>
       </ng-container>
 
+      <!-- Name Column -->
+      <ng-container *ngIf="!esJoven()" matColumnDef="Actualizar">
+        <th mat-header-cell *matHeaderCellDef class="columna-text-celdas-center columna-text">Actualizar</th>
+        <td mat-cell *matCellDef="let element" class="celda-boton-editar">
+          <button class="btn btn-primary2" [routerLink]="['ediciones', element.idProgresoMaterialMedi]">
+            <mat-icon class="color-icon-editar">edit</mat-icon>
+          </button>
+        </td>
+      </ng-container>
 
+      <!-- Weight Column -->
+      <ng-container *ngIf="!esJoven()" matColumnDef="Eliminar">
+        <th mat-header-cell *matHeaderCellDef class="columna-text-celdas-center columna-text">Eliminar</th>
+        <td mat-cell *matCellDef="let element" class="celda-boton-editar">
+          <button class="btn btn-primary3" (click)="eliminar(element.idProgresoMaterialMedi)">
+            <mat-icon class="color-icon-editar">delete_forever</mat-icon>
+          </button>
+        </td>
+      </ng-container>
       
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
