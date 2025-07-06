@@ -1,0 +1,75 @@
+<div class="container mt-4">
+  <div><h1 class="violet-text mb-4">Registro de Progreso Material Meditación:</h1></div>
+  <div>
+    <form [formGroup]="form" [ngClass]="edicion ? 'form-wrapper-3' : 'form-wrapper-2'" (submit)="aceptar()">
+
+      <mat-form-field *ngIf="edicion" appearance="outline" class="mb-4 campo-formulario"
+      [ngClass]="{'success-border': form.get('codigo')?.valid && (form.get('codigo')?.touched || form.get('codigo')?.dirty)}">
+        <mat-label class="caja-texto-color">ID del Progreso Material Meditación</mat-label>
+        <input matInput placeholder="Ingrese el ID del progreso material meditación" formControlName="codigo" [readonly]="true" class="input-gris"/>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-select-bootstrap campo-formulario mb-4"
+      [ngClass]="{
+        'success-border': form.get('ses')?.valid && (form.get('ses')?.touched || form.get('ses')?.dirty)
+      }">
+      <mat-label class="caja-texto-color">Lista de Sesión Terapia</mat-label>
+      <mat-select formControlName="ses">
+          @for (food of listaSesionTerapia; track food) {
+          <mat-option [value]="food.idSesion">{{food.idSesion}}</mat-option>
+          }
+      </mat-select>
+       <mat-error *ngIf="form.get('ses')?.hasError('required')">
+        Es obligatorio seleccionar una sesión terapia disponible
+      </mat-error>
+      <mat-hint *ngIf="form.get('ses')?.valid && (form.get('ses')?.touched || form.get('ses')?.dirty)">
+        <span class="success-hint">Campo registrado correctamente</span>
+      </mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-select-bootstrap campo-formulario mb-4"
+      [ngClass]="{
+        'success-border': form.get('mat')?.valid && (form.get('mat')?.touched || form.get('mat')?.dirty)
+      }">
+      <mat-label class="caja-texto-color">Lista de Material Meditación</mat-label>
+      <mat-select formControlName="mat">
+          @for (food of listaMaterialMeditacion; track food) {
+          <mat-option [value]="food.idMaterialMeditacion">{{food.nombreMaterialMeditacion}}</mat-option>
+          }
+      </mat-select>
+       <mat-error *ngIf="form.get('mat')?.hasError('required')">
+        Es obligatorio seleccionar un material meditación disponible
+      </mat-error>
+      <mat-hint *ngIf="form.get('mat')?.valid && (form.get('mat')?.touched || form.get('mat')?.dirty)">
+        <span class="success-hint">Campo registrado correctamente</span>
+      </mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="mb-4 campo-formulario flex-item">
+          <mat-label class="caja-texto-color">Fecha de Completado</mat-label>
+          <input matInput [matDatepicker]="pickerInicio" formControlName="fecha" />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="pickerInicio"></mat-datepicker-toggle>
+          <mat-datepicker #pickerInicio></mat-datepicker>
+      </mat-form-field>
+
+      <div class="estado-radio-group flex-item">
+          <label class="estado-label texto-negrita">Completado:</label>
+          <mat-radio-group
+            aria-label="Seleccione una opción"
+            formControlName="finalizado">
+            <mat-radio-button [value]="true">Finalizado</mat-radio-button>
+            <mat-radio-button [value]="false">No Finalizado</mat-radio-button>
+          </mat-radio-group>
+      </div>
+
+      <div [ngClass]="edicion ? 'boton-wrapper-3' : 'boton-wrapper-2'">
+        <button class="btn btn-primary" matButton="filled">Registrar Progreso Material Meditación</button>
+      </div>
+    </form>
+    <div>
+        <button class="btn btn-primary2" matButton="filled" (click)="cancelar()">Cancelar Registro Progreso Material Meditación</button>
+    </div>
+  </div>
+</div>
+
