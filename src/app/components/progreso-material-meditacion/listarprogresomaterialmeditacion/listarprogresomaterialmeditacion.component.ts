@@ -69,4 +69,13 @@ export class ListarprogresomaterialmeditacionComponent implements OnInit{
     });
   }
 
+  private setDataSourceAttributes(): void {
+    if (this.paginator) {
+      this.dataSource.paginator = this.paginator;
+    }
+  }
 
+  esJoven(): boolean {
+    return this.role === 'JOVENESPROFESIONALES';
+  }
+}
